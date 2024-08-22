@@ -94,6 +94,19 @@ input[name='base'] {
 	font-size: 1rem;
 }
 
+/* hide number arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
 /* TODO: update all */
 @media (prefers-color-scheme: light) {
 	:root {

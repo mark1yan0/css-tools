@@ -8,10 +8,12 @@
 
 <main>
 	<section class="converter">
-		<Input name="rem" label="REM" bind:value={rem} />
+		<Input name="rem" label="REM" unit="rem" copyOnClick bind:value={rem} />
 		<Input
 			name="px"
 			label="PX"
+			unit="px"
+			copyOnClick
 			bind:value={px}
 			onInput={() => {
 				rem = px / base;
@@ -37,7 +39,7 @@
 		gap: 1rem;
 	}
 
-	@media only screen and (min-width: 600px) {
+	@media only screen and (min-width: 1100px) {
 		section.converter {
 			flex-direction: row;
 		}
@@ -48,6 +50,5 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
-		width: 100vw;
 	}
 </style>
