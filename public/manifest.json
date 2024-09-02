@@ -1,0 +1,11 @@
+{
+	"manifest_version": 3,
+	"name": "css-units-converter",
+	"version": "1.0",
+	"description": "Small Browser extention to quickly have an overview on the conversion of css value",
+	"action": {
+		"default_popup": "index.html"
+	},
+	"permissions": ["tabs", "activeTab"],
+	"host_permissions": ["https://*/*", "http://*/*"]
+}

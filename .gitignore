@@ -21,3 +21,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# chrome extention
+dist.crx
+dist.pem
