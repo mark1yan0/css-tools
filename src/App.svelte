@@ -2,7 +2,6 @@
 	import Input from './lib/Input.svelte';
 	let base = 16;
 	let rem;
-
 	$: px = !rem ? null : rem * base;
 </script>
 
