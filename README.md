@@ -4,7 +4,7 @@ Small Browser extention to quickly have an overview on the conversion of css val
 
 **For now only supports px -> rem and vice versa**
 
-# Getting started
+## Getting started
 
 Clone this repo
 
@@ -12,11 +12,11 @@ To get started with development from the root run
 
 `yarn install` to download all the dependencies
 
-## Development
+### Development
 
 `yarn dev` to start development server
 
-## Using the extention
+### Using the extention
 
 To use the extention run
 
