@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Input from "./lib/Input.svelte";
+    // import Input from "./lib/Input.svelte";
     let base = 16;
     let rem = 1;
     $: px = !rem ? base : rem * base;
@@ -7,7 +7,7 @@
 
 <main>
     <section class="converter">
-        <Input name="rem" label="REM" unit="rem" copyOnClick bind:value={rem} />
+        <!-- <Input name="rem" label="REM" unit="rem" copyOnClick bind:value={rem} />
         <Input
             name="px"
             label="PX"
@@ -17,11 +17,11 @@
             onInput={() => {
                 rem = px / base;
             }}
-        />
+        /> -->
     </section>
 
     <footer class="configs">
-        <Input name="base" label="Base" bind:value={base} />
+        <!-- <Input name="base" label="Base" bind:value={base} /> -->
     </footer>
 </main>
 
