@@ -1,53 +1,37 @@
 <script lang="ts">
-    // import Input from "./lib/Input.svelte";
-    let base = 16;
-    let rem = 1;
-    $: px = !rem ? base : rem * base;
+    import "./app.css";
+    let base = $state(16);
+    let rem = $state(1);
+    let px = $state(16);
+
+    // TODO add ts intellisense for components
+    // TODO solve ts issues
 </script>
 
 <main>
     <section class="converter">
-        <!-- <Input name="rem" label="REM" unit="rem" copyOnClick bind:value={rem} />
-        <Input
-            name="px"
-            label="PX"
-            unit="px"
-            copyOnClick
-            bind:value={px}
-            onInput={() => {
-                rem = px / base;
-            }}
-        /> -->
+        <input name="rem" <!-- label="REM" -- />
+        unit="rem" value={rem}
+        <!-- oninput={(e) => {
+                px = e.target.value * base;
+            }} -->
+        type="number" />
+        <input name="px" <!-- label="PX" -- />
+        unit="px" value={px}
+        type="number"
+        <!-- oninput={(e) => {
+                rem = e.target.value / base;
+            }} -->
+        />
     </section>
 
     <footer class="configs">
-        <!-- <Input name="base" label="Base" bind:value={base} /> -->
+        <input name="base" <!-- label="Base" -- />
+        value={base}
+        <!-- oninput={(e) => {
+                rem = px / e.target.value;
+                px = rem * e.tartet.value;
+            }} -->
+        />
     </footer>
 </main>
-
-<style>
-    main {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    section.converter {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    @media only screen and (min-width: 1100px) {
-        section.converter {
-            flex-direction: row;
-        }
-    }
-
-    footer {
-        padding: 0.5rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-    }
-</style>
