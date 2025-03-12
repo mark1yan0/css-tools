@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 /* TODO: handle light */
-/* TODO: fonts */
 @theme {
 	/** Base colors */
 	--color-k-dark: #000000;
@@ -39,10 +38,18 @@ body {
 	font-style: normal;
 }
 
-/* DARK */
+#app {
+	@apply h-screen flex justify-center items-center;
+}
 
+/* DARK */
+/* TODO: make more appealing in browser ext */
 body {
-	@apply bg-k-dark;
+	@apply min-w-2xl bg-k-dark;
+}
+
+#unit-converter {
+	background-color: var(--color-k-dark);
 }
 
 h1,
@@ -55,7 +62,8 @@ p,
 span,
 a,
 label,
-input {
+input,
+button {
 	@apply text-k-light;
 }
 
@@ -70,7 +78,80 @@ input {
 		@apply bg-k-light;
 	}
 
-	h1 {
+	#unit-converter {
+		@apply !bg-indigo-50;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	a,
+	label,
+	input,
+	button {
 		@apply text-k-dark;
+	}
+}
+
+#unit-converter {
+	position: relative;
+	background-color: var(--color-k-surface-20);
+
+	/* make more complex
+	 translate to tailwindcss */
+	&:after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		filter: blur(40px);
+		transform: scale(1.3);
+		background: linear-gradient(
+			90deg,
+			var(--color-k-primary),
+			var(--color-k-primary-50)
+		);
+		background-size: 200% 200%;
+		animation: animateGlow 10s ease infinite;
+
+		@keyframes animateGlow {
+			0% {
+				background-position: 0% 10%;
+			}
+
+			10% {
+				background-position: 0% 20%;
+			}
+
+			20% {
+				background-position: 0% 20%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			60% {
+				background-position: 100% 40%;
+			}
+
+			70% {
+				background-position: 100% 30%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 	}
 }

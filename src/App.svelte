@@ -15,13 +15,43 @@
 
 	function pxChangeHandler(event: ChangeEvent) {
 		const x = event.currentTarget.valueAsNumber;
+
 		pxValue = x;
 		remValue = x / baseSize;
 	}
+
+	function copy(type: 'rem' | 'px') {
+		let value = '';
+		switch (type) {
+			case 'rem':
+				value = remValue.toString().replace(',', '.');
+				break;
+
+			// px
+			default:
+				value = pxValue.toString();
+				break;
+		}
+
+		if (!value) {
+			throw new Error('An error occured when trying to copy');
+		}
+
+		if (!navigator.clipboard) {
+			throw new Error('Copy not available');
+		}
+
+		if (navigator.clipboard) {
+			navigator.clipboard.writeText(`${value}${type}`);
+			// TODO: toast
+			alert(`Copied ${value}${type}`);
+		}
+	}
 </script>
 
-<div class="bg-k-surface-10 shadow-lg rounded-2xl p-6 w-full max-w-md m-auto">
-	<h1 class="text-2xl font-bold text-center text-purple-600">
+<div id="unit-converter" class="shadow-lg rounded-2xl p-6 w-full max-w-md">
+	<!-- <button onclick={toggleTheme}>toggle: {theme}</button> -->
+	<h1 class="text-2xl font-bold text-center text-k-primary">
 		Unit Converter
 	</h1>
 	<p class="text-gray-600 text-center mb-4">
@@ -36,29 +66,41 @@
 
 	<div class="mt-4 space-y-4">
 		<div>
-			<label for="rem" class="block text-gray-700 text-sm font-medium"
-				>REM Value</label
-			>
+			<label for="rem" class="block text-gray-700 text-sm font-medium">
+				REM Value
+			</label>
 			<input
 				type="number"
 				name="rem"
 				id="rem"
 				value={remValue}
 				oninput={remChangeHandler}
+				step="any"
 			/>
+			<!-- TODO: make as svg (for coloring) -->
+			<button onclick={() => copy('rem')}
+				><img src="/images/copy.png" alt="Copy icon" /></button
+			>
 		</div>
 
 		<div>
-			<label for="px" class="block text-gray-700 text-sm font-medium"
-				>Pixel Value</label
-			>
+			<label for="px" class="block text-gray-700 text-sm font-medium">
+				Pixel Value
+			</label>
+			<!-- Must always be int? -->
 			<input
 				name="px"
 				id="px"
 				type="number"
 				value={pxValue}
 				oninput={pxChangeHandler}
+				step="any"
 			/>
+
+			<!-- TODO: make as svg (for coloring) -->
+			<button onclick={() => copy('px')}
+				><img src="/images/copy.png" alt="Copy icon" /></button
+			>
 		</div>
 	</div>
 

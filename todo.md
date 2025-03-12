@@ -1,0 +1,7 @@
+-   [ ] dark/ligth theme managment
+-   [ ] copy on click
+-   [ ] more personalized design
+-   [ ] last saved in localStorage?
+-   [ ] override base
+-   [ ] get default base from browser? is it possible?
+-   [ ] set overriden base in localStorage
