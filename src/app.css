@@ -1,55 +1,55 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* TODO: handle light */
 @theme {
-	/** Base colors */
-	--color-k-dark: #000000;
-	--color-k-light: #ffffff;
+    /** Base colors */
+    --color-k-dark: #000000;
+    --color-k-light: #ffffff;
 
-	/** Dark theme primary colors */
-	--color-k-primary: #b685ff;
-	--color-k-primary-10: #bf92ff;
-	--color-k-primary-20: #c8a0ff;
-	--color-k-primary-30: #d1adff;
-	--color-k-primary-40: #d9bbff;
-	--color-k-primary-50: #e1c8ff;
+    /** Dark theme primary colors */
+    --color-k-primary: #b685ff;
+    --color-k-primary-10: #bf92ff;
+    --color-k-primary-20: #c8a0ff;
+    --color-k-primary-30: #d1adff;
+    --color-k-primary-40: #d9bbff;
+    --color-k-primary-50: #e1c8ff;
 
-	/** Dark theme surface colors */
-	--color-k-surface: #121212;
-	--color-k-surface-10: #282828;
-	--color-k-surface-20: #3f3f3f;
-	--color-k-surface-30: #575757;
-	--color-k-surface-40: #717171;
-	--color-k-surface-50: #8b8b8b;
+    /** Dark theme surface colors */
+    --color-k-surface: #121212;
+    --color-k-surface-10: #282828;
+    --color-k-surface-20: #3f3f3f;
+    --color-k-surface-30: #575757;
+    --color-k-surface-40: #717171;
+    --color-k-surface-50: #8b8b8b;
 
-	/** Dark theme tonal surface colors */
-	--color-k-surface-tonal: #211d26;
-	--color-k-surface-tonal-10: #36323a;
-	--color-k-surface-tonal-20: #4c4850;
-	--color-k-surface-tonal-30: #636067;
-	--color-k-surface-tonal-40: #7b787e;
-	--color-k-surface-tonal-50: #949197;
+    /** Dark theme tonal surface colors */
+    --color-k-surface-tonal: #211d26;
+    --color-k-surface-tonal-10: #36323a;
+    --color-k-surface-tonal-20: #4c4850;
+    --color-k-surface-tonal-30: #636067;
+    --color-k-surface-tonal-40: #7b787e;
+    --color-k-surface-tonal-50: #949197;
 }
 
 body {
-	font-family: 'Source Code Pro', monospace;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #app {
-	@apply h-screen flex justify-center items-center;
+    @apply h-screen;
 }
 
 /* DARK */
 /* TODO: make more appealing in browser ext */
 body {
-	@apply min-w-2xl bg-k-dark;
+    @apply min-w-xl max-w-xl bg-k-dark mx-auto;
 }
 
 #unit-converter {
-	background-color: var(--color-k-dark);
+    @apply bg-k-surface-10 h-full;
 }
 
 h1,
@@ -64,94 +64,36 @@ a,
 label,
 input,
 button {
-	@apply text-k-light;
+    @apply text-k-light;
 }
 
 input {
-	@apply w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-k-primary;
+    @apply w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-k-primary;
 }
 
 /* Light */
 
 @media (prefers-color-scheme: light) {
-	body {
-		@apply bg-k-light;
-	}
+    body {
+        @apply bg-k-light;
+    }
 
-	#unit-converter {
-		@apply !bg-indigo-50;
-	}
+    #unit-converter {
+        @apply !bg-indigo-50;
+    }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	span,
-	a,
-	label,
-	input,
-	button {
-		@apply text-k-dark;
-	}
-}
-
-#unit-converter {
-	position: relative;
-	background-color: var(--color-k-surface-20);
-
-	/* make more complex
-	 translate to tailwindcss */
-	&:after {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: -1;
-		height: 100%;
-		width: 100%;
-		margin: 0 auto;
-		filter: blur(40px);
-		transform: scale(1.3);
-		background: linear-gradient(
-			90deg,
-			var(--color-k-primary),
-			var(--color-k-primary-50)
-		);
-		background-size: 200% 200%;
-		animation: animateGlow 10s ease infinite;
-
-		@keyframes animateGlow {
-			0% {
-				background-position: 0% 10%;
-			}
-
-			10% {
-				background-position: 0% 20%;
-			}
-
-			20% {
-				background-position: 0% 20%;
-			}
-
-			50% {
-				background-position: 100% 50%;
-			}
-
-			60% {
-				background-position: 100% 40%;
-			}
-
-			70% {
-				background-position: 100% 30%;
-			}
-
-			100% {
-				background-position: 0% 50%;
-			}
-		}
-	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    a,
+    label,
+    input,
+    button {
+        @apply text-k-dark;
+    }
 }

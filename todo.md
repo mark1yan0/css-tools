@@ -5,3 +5,4 @@
 -   [ ] override base
 -   [ ] get default base from browser? is it possible?
 -   [ ] set overriden base in localStorage
+-   [ ] solve font not loading on extention
