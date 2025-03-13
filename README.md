@@ -1,25 +1,38 @@
-# CSS Units converter
+# sv
 
-Small Browser extention to quickly have an overview on the conversion of css value
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-**For now only supports px -> rem and vice versa**
+## Creating a project
 
-## Getting started
+If you're seeing this, you've probably already done this step. Congrats!
 
-Clone this repo
+```bash
+# create a new project in the current directory
+npx sv create
 
-To get started with development from the root run
+# create a new project in my-app
+npx sv create my-app
+```
 
-`pnpm install` to download all the dependencies
+## Developing
 
-### Development
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-`pnpm dev` to start development server
+```bash
+npm run dev
 
-### Using the extention
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-To use the extention run
+## Building
 
-`pnpm build` to build the bundle
+To create a production version of your app:
 
-Then go to browser extentions, click on `upload unpackaged extention` and upload the built `dist` folder
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
