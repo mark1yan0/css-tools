@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CssUnits from "./ui/pages/CssUnits.svelte";
+    import CssUnits from "./ui/pages/css-units/index.svelte";
 </script>
 
 <main>
