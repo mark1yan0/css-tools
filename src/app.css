@@ -31,28 +31,44 @@
     --color-k-surface-tonal-50: #949197;
 }
 
+/* DARK */
+/* TODO: make more appealing in browser ext */
+/* TODO: dark mode */
 body {
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+
+    @apply overflow-hidden;
+
+    :before {
+        @apply content-[""] absolute top-0 left-0 w-full
+            h-full -z-10;
+
+        --bg-size: 50px;
+        --bg-grad-size: 1px;
+        background-image:
+            radial-gradient(
+                var(--color-k-light) var(--bg-grad-size),
+                transparent var(--bg-grad-size)
+            ),
+            radial-gradient(
+                var(--color-k-light) var(--bg-grad-size),
+                var(--color-k-primary) var(--bg-grad-size)
+            );
+        background-size: var(--bg-size) var(--bg-size);
+        background-position:
+            0 0,
+            calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
+    }
 }
 
 #app {
-    @apply h-screen;
+    @apply min-w-xl max-w-xl max-h-56 mx-auto;
 }
 
-/* DARK */
-/* TODO: make more appealing in browser ext */
-body {
-    @apply min-w-xl max-w-xl bg-k-dark mx-auto;
-}
-
-#unit-converter {
-    @apply bg-k-surface-10 h-full;
-}
-
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -64,17 +80,17 @@ a,
 label,
 input,
 button {
-    @apply text-k-light;
-}
+    @apply text-k-dark;
+} */
 
-input {
-    @apply w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-k-primary;
-}
+/* input {
+    @apply w-full p-2 focus:outline-none focus:ring-2 focus:ring-k-surface;
+} */
 
 /* Light */
 
 @media (prefers-color-scheme: light) {
-    body {
+    /* body {
         @apply bg-k-light;
     }
 
@@ -95,5 +111,5 @@ input {
     input,
     button {
         @apply text-k-dark;
-    }
+    } */
 }

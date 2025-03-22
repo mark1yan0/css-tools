@@ -4,7 +4,8 @@
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    ><rect width="24" height="24" stroke="none" opacity={0} />
+>
+    <rect width="24" height="24" stroke="none" opacity={0} />
 
     <g transform="matrix(1.43 0 0 1.43 12 12)">
         <path
@@ -16,8 +17,4 @@
 </svg>
 
 <style>
-    svg g path {
-        opacity: 1;
-        fill: #fff;
-    }
 </style>

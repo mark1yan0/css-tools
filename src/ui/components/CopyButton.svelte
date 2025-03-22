@@ -30,3 +30,9 @@
 >
     <Copy />
 </button>
+
+<style>
+    button {
+        cursor: copy;
+    }
+</style>
