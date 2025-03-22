@@ -25,32 +25,9 @@ class Converter {
     return this.#base;
   }
 
-  public copy(type: "rem" | "px") {
-    let value = "";
-    switch (type) {
-      case "rem":
-        value = this.#rem.toString().replace(",", ".");
-        break;
-
-      // px
-      default:
-        value = this.#px.toString();
-        break;
-    }
-
-    if (!value) {
-      throw new Error("An error occured when trying to copy");
-    }
-
-    if (!navigator.clipboard) {
-      throw new Error("Copy not available");
-    }
-
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(`${value}${type}`);
-      // TODO: toast
-      alert(`Copied ${value}${type}`);
-    }
+  public getString(type: "rem" | "px"): string {
+    let value = type === "rem" ? this.#rem : this.#px;
+    return `${value}${type}`;
   }
 }
 

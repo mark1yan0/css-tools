@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Copy from "@/assets/icons/copy.svelte";
-    import Converter from "./converter.svelte.ts";
+    import CopyButton from "@/ui/components/CopyButton.svelte";
+    import Converter from "./converter.svelte";
 
     const converter = new Converter();
 </script>
@@ -31,12 +31,7 @@
                 id="rem"
                 bind:value={converter.rem}
             />
-            <button
-                class="hover:scale-125"
-                onclick={() => converter.copy("rem")}
-            >
-                <Copy />
-            </button>
+            <CopyButton value={converter.getString("rem")} />
         </div>
 
         <div>
@@ -46,9 +41,7 @@
             <!-- Must always be int? -->
             <input name="px" id="px" type="number" bind:value={converter.px} />
 
-            <button class="hover:scale-125" onclick={() => converter.copy("px")}
-                ><Copy /></button
-            >
+            <CopyButton value={converter.getString("px")} />
         </div>
     </div>
 
