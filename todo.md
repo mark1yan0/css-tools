@@ -1,5 +1,5 @@
 -   [ ] dark/ligth theme managment
--   [ ] copy on click
+-   [x] copy on dbclick
 -   [ ] more personalized design
 -   [ ] last saved in localStorage?
 -   [ ] override base

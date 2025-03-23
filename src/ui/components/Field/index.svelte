@@ -12,6 +12,8 @@
         autofocus?: boolean;
     } = $props();
 
+    import cursorNotice from "@/state/cursor/index.svelte";
+
     function copyHandler() {
         if (!value && value !== 0) {
             throw new Error("An error occured when trying to copy");
@@ -23,8 +25,7 @@
 
         if (navigator.clipboard) {
             navigator.clipboard.writeText(`${value}${id}`);
-            // TODO: toast
-            alert(`Copied ${value}${id}`);
+            cursorNotice.info(`Copied ${value}${id}`);
         }
     }
 

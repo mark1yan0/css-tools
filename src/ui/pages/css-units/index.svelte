@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Field from "@/ui/components/Field.svelte";
+    import Field from "@/ui/components/Field/index.svelte";
     import Converter from "./converter.svelte";
 
     const converter = new Converter();
