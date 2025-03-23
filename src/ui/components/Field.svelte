@@ -4,17 +4,42 @@
         type,
         label,
         value = $bindable(),
-        autofocus,
     }: {
         id: string;
         type: string;
         label: string;
-        value: string;
+        value: number;
         autofocus?: boolean;
     } = $props();
-</script>
 
-<!-- TODO: copy on dbclick -->
+    function copyHandler() {
+        if (!value && value !== 0) {
+            throw new Error("An error occured when trying to copy");
+        }
+
+        if (!navigator.clipboard) {
+            throw new Error("Copy not available");
+        }
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(`${value}${id}`);
+            // TODO: toast
+            alert(`Copied ${value}${id}`);
+        }
+    }
+
+    function focusHandler(
+        event: FocusEvent & {
+            currentTarget: EventTarget & HTMLInputElement;
+        },
+    ) {
+        if (!event.currentTarget) {
+            return;
+        }
+
+        event.currentTarget.select();
+    }
+</script>
 
 <label for={id} class="block text-gray-700 text-sm font-medium">
     {label}
@@ -22,10 +47,11 @@
 <input
     {type}
     name={id}
+    ondblclick={copyHandler}
     {id}
     bind:value
     class="text-9xl w-full text-center focus:outline-none"
-    onfocus={(event) => event.target.select()}
+    onfocus={focusHandler}
 />
 
 <style>
