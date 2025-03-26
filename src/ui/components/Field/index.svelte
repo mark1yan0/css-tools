@@ -7,6 +7,10 @@
         autofocus?: boolean;
     }
 
+    type TFocusEvent = FocusEvent & {
+        currentTarget: EventTarget & HTMLInputElement;
+    };
+
     let { id, type, label, value = $bindable() }: IProps = $props();
 
     import cursorNotice from "@/state/cursor/index.svelte";
@@ -26,11 +30,7 @@
         }
     }
 
-    function focusHandler(
-        event: FocusEvent & {
-            currentTarget: EventTarget & HTMLInputElement;
-        },
-    ) {
+    function focusHandler(event: TFocusEvent) {
         if (!event.currentTarget) {
             return;
         }
@@ -42,11 +42,7 @@
         target.style.color = "white"; // TODO: make a css variable
     }
 
-    function blurHandler(
-        event: FocusEvent & {
-            currentTarget: EventTarget & HTMLInputElement;
-        },
-    ) {
+    function blurHandler(event: TFocusEvent) {
         if (!event.currentTarget) {
             return;
         }
@@ -55,9 +51,23 @@
 
         target.style.color = "var(--color-purple-600)";
     }
-</script>
 
-<!-- TODO: Add a tooltip to notify that user can copy the value on db click -->
+    let timeout = $state<NodeJS.Timeout | null>(null);
+    function mouseOverHandler() {
+        timeout = setTimeout(() => {
+            cursorNotice.info("Double click to copy");
+        }, 3000); // TODO: add to settings
+    }
+
+    function mouseOutHandler() {
+        if (!timeout) {
+            return;
+        }
+
+        clearTimeout(timeout);
+        timeout = null;
+    }
+</script>
 
 <label for={id} class="block text-sm font-medium invisible">
     {label}
@@ -72,6 +82,8 @@
         class="text-9xl text-center focus:outline-none text-purple-600 field-sizing-content"
         onfocus={focusHandler}
         onblur={blurHandler}
+        onmouseover={mouseOverHandler}
+        onmouseout={mouseOutHandler}
     />
     <span class="absolute text-5xl bottom-0 mb-10">
         {id}
