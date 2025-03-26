@@ -7,7 +7,27 @@ body {
     font-style: normal;
     overflow: hidden;
 
-    @apply bg-zinc-900 text-white;
+    @apply text-gray-200 py-4 animate-gradient;
+
+    background: rgb(63, 63, 70);
+    background: -moz-radial-gradient(
+        circle,
+        rgba(63, 63, 70, 1) 0%,
+        rgba(24, 24, 27, 1) 90%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        rgba(63, 63, 70, 1) 0%,
+        rgba(24, 24, 27, 1) 90%
+    );
+    background: radial-gradient(
+        circle,
+        rgba(63, 63, 70, 1) 0%,
+        rgba(24, 24, 27, 1) 90%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f3f46",endColorstr="#18181b",GradientType=1);
+
+    background-repeat: no-repeat;
 
     #app {
         @apply min-w-xl max-w-xl mx-auto;

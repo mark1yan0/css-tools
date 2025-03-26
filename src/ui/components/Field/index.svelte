@@ -56,7 +56,7 @@
     function mouseOverHandler() {
         timeout = setTimeout(() => {
             cursorNotice.info("Double click to copy");
-        }, 3000); // TODO: add to settings
+        }, 3000); // TODO: add to settings and make possibility to disable
     }
 
     function mouseOutHandler() {

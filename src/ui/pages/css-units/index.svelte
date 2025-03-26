@@ -5,7 +5,7 @@
     const converter = new Converter();
 </script>
 
-<header class="py-4">
+<header>
     <h1 class="animated-text text-4xl text-center">REM to PX Converter</h1>
 </header>
 
