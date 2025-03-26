@@ -1,12 +1,14 @@
 <script lang="ts">
+    import ThemeSwitcher from "@/ui/components/ThemeSwitcher/index.svelte";
     import Field from "@/ui/components/Field/index.svelte";
     import Converter from "./converter.svelte";
 
     const converter = new Converter();
 </script>
 
-<header>
-    <h1 class="animated-text text-4xl text-center">REM to PX Converter</h1>
+<header class="flex items-center justify-between">
+    <h1 class="animated-text text-4xl">REM to PX Converter</h1>
+    <ThemeSwitcher />
 </header>
 
 <div class="flex flex-col items-center">

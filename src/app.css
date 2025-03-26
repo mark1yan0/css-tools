@@ -7,32 +7,59 @@ body {
     font-style: normal;
     overflow: hidden;
 
-    @apply text-gray-200 py-4 animate-gradient;
+    --theme-main: var(--color-purple-600);
 
-    background: rgb(63, 63, 70);
+    /*
+        Prefers color scheme implemented on the theme switcher manager
+        The theme is directed by the `data-theme` attribute on the body
+    */
+
+    /* dark mode */
+    &[data-theme="dark"] {
+        --theme-background-from: rgb(63, 63, 70);
+        --theme-background-to: rgba(24, 24, 27, 1);
+        --theme-text: var(--color-gray-300);
+    }
+
+    /* light mode */
+    &[data-theme="light"] {
+        --theme-background-from: var(--color-gray-100);
+        --theme-background-to: var(--color-gray-400);
+        --theme-text: var(--color-gray-800);
+    }
+
+    @apply text-[var(--theme-text)] py-4 animate-gradient;
+
+    background: var(--theme-background-from);
     background: -moz-radial-gradient(
         circle,
-        rgba(63, 63, 70, 1) 0%,
-        rgba(24, 24, 27, 1) 90%
+        var(--theme-background-from) 0%,
+        var(--theme-background-to) 90%
     );
     background: -webkit-radial-gradient(
         circle,
-        rgba(63, 63, 70, 1) 0%,
-        rgba(24, 24, 27, 1) 90%
+        var(--theme-background-from) 0%,
+        var(--theme-background-to) 90%
     );
     background: radial-gradient(
         circle,
-        rgba(63, 63, 70, 1) 0%,
-        rgba(24, 24, 27, 1) 90%
+        var(--theme-background-from) 0%,
+        var(--theme-background-to) 90%
     );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f3f46",endColorstr="#18181b",GradientType=1);
 
     background-repeat: no-repeat;
 
     #app {
         @apply min-w-xl max-w-xl mx-auto;
+
+        svg {
+            @apply fill-[var(--theme-text)];
+        }
     }
 }
+
+/* utils */
+
 .animated-text {
     @apply font-bold bg-gradient-to-r from-purple-900 via-purple-500 to-purple-200 text-transparent bg-clip-text animate-gradient;
 }

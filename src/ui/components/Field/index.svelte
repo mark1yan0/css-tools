@@ -38,8 +38,7 @@
         const target = event.currentTarget;
         target.select();
 
-        // TODO: handle dark mode
-        target.style.color = "white"; // TODO: make a css variable
+        target.style.color = "var(--theme-text)";
     }
 
     function blurHandler(event: TFocusEvent) {
@@ -49,7 +48,7 @@
 
         const target = event.currentTarget;
 
-        target.style.color = "var(--color-purple-600)";
+        target.style.color = "var(--theme-main)";
     }
 
     let timeout = $state<NodeJS.Timeout | null>(null);
@@ -60,6 +59,7 @@
     }
 
     function mouseOutHandler() {
+        cursorNotice.hide();
         if (!timeout) {
             return;
         }

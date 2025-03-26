@@ -30,7 +30,7 @@
             duration: 150,
         }}
         data-severity={cursorNotice.severity}
-        class="fixed data-[severity=info]:bg-purple-600 text-white px-2 py-1 rounded-md shadow-md flex items-center gap-2"
+        class="absolute data-[severity=info]:bg-purple-600 text-white px-2 py-1 rounded-md shadow-md flex items-center gap-2 w-fit"
         style="left: {mousePosition.x}px; top: {mousePosition.y}px;"
     >
         <InfoIcon />
