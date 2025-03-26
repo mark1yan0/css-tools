@@ -5,6 +5,10 @@
     const converter = new Converter();
 </script>
 
+<header class="py-4">
+    <h1 class="animated-text text-4xl text-center">REM to PX Converter</h1>
+</header>
+
 <div class="flex flex-col items-center">
     <Field
         type="number"
@@ -16,9 +20,12 @@
     <Field type="number" label="PX Value" id="px" bind:value={converter.px} />
 </div>
 
-<div class="mt-4 text-center text-sm">
+<!-- TODO: make base size editable -->
+<footer class="mt-4 text-center text-sm">
     <p>
-        ⚡ Base size: <span class="font-semibold">{converter.base}px</span>
+        Base size: <span class="font-semibold text-purple-400"
+            >{converter.base}px</span
+        >
     </p>
-    <p>1rem = 16px on your current browser</p>
-</div>
+    <!-- <p>1rem = 16px on your current browser</p> -->
+</footer>

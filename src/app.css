@@ -13,3 +13,26 @@ body {
         @apply min-w-xl max-w-xl mx-auto;
     }
 }
+.animated-text {
+    /* background: linear-gradient(to right, orange 0%, blue 50%, green 100%); */
+    @apply font-bold bg-gradient-to-r from-purple-900 via-purple-500 to-purple-200 text-transparent bg-clip-text animate-gradient;
+}
+
+@utility animate-gradient {
+    background-size: 300%;
+    -webkit-animation: animatedgradient 6s ease infinite alternate;
+    -moz-animation: animatedgradient 6s ease infinite alternate;
+    animation: animatedgradient 6s ease infinite alternate;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
