@@ -1,16 +1,13 @@
 <script lang="ts">
-    let {
-        id,
-        type,
-        label,
-        value = $bindable(),
-    }: {
+    interface IProps {
         id: string;
         type: string;
         label: string;
         value: number;
         autofocus?: boolean;
-    } = $props();
+    }
+
+    let { id, type, label, value = $bindable() }: IProps = $props();
 
     import cursorNotice from "@/state/cursor/index.svelte";
 
@@ -38,22 +35,48 @@
             return;
         }
 
-        event.currentTarget.select();
+        const target = event.currentTarget;
+        target.select();
+
+        // TODO: handle dark mode
+        target.style.color = "white"; // TODO: make a css variable
+    }
+
+    function blurHandler(
+        event: FocusEvent & {
+            currentTarget: EventTarget & HTMLInputElement;
+        },
+    ) {
+        if (!event.currentTarget) {
+            return;
+        }
+
+        const target = event.currentTarget;
+
+        target.style.color = "var(--color-purple-600)";
     }
 </script>
 
-<label for={id} class="block text-gray-700 text-sm font-medium">
+<!-- TODO: Add a tooltip to notify that user can copy the value on db click -->
+
+<label for={id} class="block text-sm font-medium invisible">
     {label}
 </label>
-<input
-    {type}
-    name={id}
-    ondblclick={copyHandler}
-    {id}
-    bind:value
-    class="text-9xl w-full text-center focus:outline-none"
-    onfocus={focusHandler}
-/>
+<span class="relative">
+    <input
+        {type}
+        name={id}
+        ondblclick={copyHandler}
+        {id}
+        bind:value
+        class="text-9xl text-center focus:outline-none text-purple-600 field-sizing-content"
+        onfocus={focusHandler}
+        onblur={blurHandler}
+    />
+    <span class="absolute text-5xl bottom-0 mb-10">
+        {id}
+    </span>
+</span>
 
 <style>
     /* Chrome, Safari, Edge, Opera */

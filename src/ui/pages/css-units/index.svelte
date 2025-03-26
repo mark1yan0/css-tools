@@ -5,11 +5,18 @@
     const converter = new Converter();
 </script>
 
-<Field type="number" label="REM Value" id="rem" bind:value={converter.rem} />
+<div class="flex flex-col items-center">
+    <Field
+        type="number"
+        label="REM Value"
+        id="rem"
+        bind:value={converter.rem}
+    />
 
-<Field type="number" label="PX Value" id="px" bind:value={converter.px} />
+    <Field type="number" label="PX Value" id="px" bind:value={converter.px} />
+</div>
 
-<div class="mt-4 text-center text-gray-600 text-sm">
+<div class="mt-4 text-center text-sm">
     <p>
         ⚡ Base size: <span class="font-semibold">{converter.base}px</span>
     </p>

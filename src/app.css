@@ -1,119 +1,15 @@
 @import "tailwindcss";
 
-/* TODO: handle light */
-@theme {
-    /** Base colors */
-    --color-k-dark: #000000;
-    --color-k-light: #ffffff;
-
-    /** Dark theme primary colors */
-    --color-k-primary: #b685ff;
-    --color-k-primary-10: #bf92ff;
-    --color-k-primary-20: #c8a0ff;
-    --color-k-primary-30: #d1adff;
-    --color-k-primary-40: #d9bbff;
-    --color-k-primary-50: #e1c8ff;
-
-    /** Dark theme surface colors */
-    --color-k-surface: #121212;
-    --color-k-surface-10: #282828;
-    --color-k-surface-20: #3f3f3f;
-    --color-k-surface-30: #575757;
-    --color-k-surface-40: #717171;
-    --color-k-surface-50: #8b8b8b;
-
-    /** Dark theme tonal surface colors */
-    --color-k-surface-tonal: #211d26;
-    --color-k-surface-tonal-10: #36323a;
-    --color-k-surface-tonal-20: #4c4850;
-    --color-k-surface-tonal-30: #636067;
-    --color-k-surface-tonal-40: #7b787e;
-    --color-k-surface-tonal-50: #949197;
-}
-
-/* DARK */
-/* TODO: make more appealing in browser ext */
-/* TODO: dark mode */
 body {
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     overflow: hidden;
-}
 
-body:before {
-    --bg-size: 50px;
-    --bg-grad-size: 1px;
+    @apply bg-zinc-900 text-white;
 
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image:
-        radial-gradient(
-            var(--color-k-light) var(--bg-grad-size),
-            transparent var(--bg-grad-size)
-        ),
-        radial-gradient(
-            var(--color-k-light) var(--bg-grad-size),
-            var(--color-k-primary) var(--bg-grad-size)
-        );
-    background-size: var(--bg-size) var(--bg-size);
-    background-position:
-        0 0,
-        calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
-}
-
-#app {
-    @apply min-w-xl max-w-xl max-h-56 mx-auto;
-}
-
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-a,
-label,
-input,
-button {
-    @apply text-k-dark;
-} */
-
-/* input {
-    @apply w-full p-2 focus:outline-none focus:ring-2 focus:ring-k-surface;
-} */
-
-/* Light */
-
-@media (prefers-color-scheme: light) {
-    /* body {
-        @apply bg-k-light;
+    #app {
+        @apply min-w-xl max-w-xl mx-auto;
     }
-
-    #unit-converter {
-        @apply !bg-indigo-50;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    span,
-    a,
-    label,
-    input,
-    button {
-        @apply text-k-dark;
-    } */
 }
