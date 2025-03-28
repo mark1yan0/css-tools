@@ -28,7 +28,7 @@ body {
         --theme-text: var(--color-gray-800);
     }
 
-    @apply text-[var(--theme-text)] py-4 animate-gradient;
+    @apply text-[var(--theme-text)] animate-gradient;
 
     background: var(--theme-background-from);
     background: -moz-radial-gradient(
@@ -50,7 +50,7 @@ body {
     background-repeat: no-repeat;
 
     #app {
-        @apply min-w-xl max-w-xl mx-auto;
+        @apply min-w-xl max-w-xl mx-auto p-4;
 
         svg {
             @apply fill-[var(--theme-text)];
