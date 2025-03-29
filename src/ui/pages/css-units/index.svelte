@@ -1,7 +1,6 @@
 <script lang="ts">
     import ThemeSwitcher from "@/ui/components/ThemeSwitcher/index.svelte";
     import ConvertField from "./convert_field.svelte";
-    import BaseUnit from "./base_unit.svelte";
     import converter from "@/state/converter/index.svelte";
 </script>
 
@@ -15,9 +14,3 @@
 
     <ConvertField label="PX Value" id="px" bind:value={converter.px} />
 </div>
-
-<!-- TODO: make base size editable -->
-<footer class="mt-4 text-center text-sm">
-    <BaseUnit />
-    <!-- <p>1rem = 16px on your current browser</p> -->
-</footer>

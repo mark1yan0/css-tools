@@ -41,7 +41,7 @@
             width="15"
             height="16"
             viewBox="0 0 15 16"
-            fill="none"
+            class="fill-[var(--theme-text)] hover:fill-purple-500"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -53,7 +53,7 @@
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            fill="none"
+            class="fill-[var(--theme-text)] hover:fill-purple-500"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path

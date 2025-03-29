@@ -3,5 +3,15 @@
     import converter from "@/state/converter/index.svelte";
 </script>
 
-<p class="inline">Base size:</p>
-<Field id="base-size" bind:value={converter.base} type="number" after="px" />
+<div
+    class="pr-6 text-gray-50 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded"
+>
+    <p class="inline">Base size:</p>
+    <Field
+        id="base-size"
+        bind:value={converter.base}
+        type="number"
+        after="px"
+        afterClass="text-sm"
+    />
+</div>
