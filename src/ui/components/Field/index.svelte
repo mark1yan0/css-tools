@@ -1,93 +1,74 @@
 <script lang="ts">
-    interface IProps {
-        id: string;
-        type: string;
-        label: string;
-        value: number;
-        autofocus?: boolean;
-    }
+    import { twMerge } from "tailwind-merge";
 
     type TFocusEvent = FocusEvent & {
         currentTarget: EventTarget & HTMLInputElement;
     };
 
-    let { id, type, label, value = $bindable() }: IProps = $props();
-
-    import cursorNotice from "@/state/cursor/index.svelte";
-
-    function copyHandler() {
-        if (!value && value !== 0) {
-            throw new Error("An error occured when trying to copy");
-        }
-
-        if (!navigator.clipboard) {
-            throw new Error("Copy not available");
-        }
-
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(`${value}${id}`);
-            cursorNotice.info(`Copied ${value}${id}`);
-        }
+    interface IProps {
+        id: string;
+        type: string;
+        value: number;
+        fieldClass?: string;
+        label?: string;
+        labelClass?: string;
+        autofocus?: boolean;
+        after?: string;
+        afterClass?: string;
+        onfocus?: (event: TFocusEvent) => void;
+        onblur?: (event: TFocusEvent) => void;
+        onmouseover?: (event: MouseEvent) => void;
+        onmouseout?: (event: MouseEvent) => void;
+        ondblclick?: (event: MouseEvent) => void;
+        step?: string | number;
     }
 
-    function focusHandler(event: TFocusEvent) {
-        if (!event.currentTarget) {
-            return;
-        }
-
-        const target = event.currentTarget;
-        target.select();
-
-        target.style.color = "var(--theme-text)";
-    }
-
-    function blurHandler(event: TFocusEvent) {
-        if (!event.currentTarget) {
-            return;
-        }
-
-        const target = event.currentTarget;
-
-        target.style.color = "var(--theme-main)";
-    }
-
-    let timeout = $state<NodeJS.Timeout | null>(null);
-    function mouseOverHandler() {
-        timeout = setTimeout(() => {
-            cursorNotice.info("Double click to copy");
-        }, 3000); // TODO: add to settings and make possibility to disable
-    }
-
-    function mouseOutHandler() {
-        cursorNotice.hide();
-        if (!timeout) {
-            return;
-        }
-
-        clearTimeout(timeout);
-        timeout = null;
-    }
+    let {
+        id,
+        type,
+        fieldClass,
+        label,
+        labelClass,
+        afterClass,
+        value = $bindable(),
+        after,
+        onblur,
+        onfocus,
+        onmouseover,
+        onmouseout,
+        ondblclick,
+        step,
+    }: IProps = $props();
 </script>
 
-<label for={id} class="block text-sm font-medium invisible">
-    {label}
-</label>
+{#if label}
+    <label for={id} class={twMerge("block font-medium", labelClass)}>
+        {label}
+    </label>
+{/if}
+
 <span class="relative">
     <input
         {type}
         name={id}
-        ondblclick={copyHandler}
         {id}
         bind:value
-        class="text-9xl text-center focus:outline-none text-purple-600 field-sizing-content"
-        onfocus={focusHandler}
-        onblur={blurHandler}
-        onmouseover={mouseOverHandler}
-        onmouseout={mouseOutHandler}
+        class={twMerge(
+            "text-center focus:outline-none field-sizing-content",
+            fieldClass,
+        )}
+        {onfocus}
+        {onblur}
+        {onmouseover}
+        {onmouseout}
+        {ondblclick}
+        {step}
     />
-    <span class="absolute text-5xl bottom-0 mb-10">
-        {id}
-    </span>
+    {#if after}
+        <span class={twMerge("absolute bottom-0", afterClass)}>
+            {after}
+        </span>
+    {/if}
 </span>
 
 <style>
