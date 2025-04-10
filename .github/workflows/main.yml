@@ -6,7 +6,7 @@ on:
             - "*" # Triggers on any tag
 
 jobs:
-    cache-and-install:
+    build:
         runs-on: ubuntu-latest
 
         steps:
@@ -28,10 +28,6 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
             - name: Build App
               run: pnpm build
 
