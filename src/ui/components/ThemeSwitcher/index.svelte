@@ -1,7 +1,8 @@
 <script lang="ts">
     import themeManager from "@/state/theme/index.svelte";
+    import { slide } from "svelte/transition";
 
-    function clickHandler() {
+    async function clickHandler() {
         themeManager.switch();
     }
 </script>
@@ -9,13 +10,17 @@
 <button
     onclick={clickHandler}
     class="hover:scale-110 transition-all"
-    title="switch theme"
+    title={themeManager.isDark()
+        ? "switch to light theme"
+        : "switch to dark theme"}
 >
     {#if themeManager.isDark()}
         <svg
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
+            in:slide={{ delay: 250 }}
+            out:slide={{ duration: 200 }}
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
             class="fill-[var(--theme-text)] hover:fill-purple-500"
             xmlns="http://www.w3.org/2000/svg"
         >
@@ -25,6 +30,8 @@
         </svg>
     {:else}
         <svg
+            in:slide={{ delay: 250 }}
+            out:slide={{ duration: 200 }}
             width="18"
             height="18"
             viewBox="0 0 18 18"

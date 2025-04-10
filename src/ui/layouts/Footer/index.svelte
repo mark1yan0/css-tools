@@ -11,12 +11,12 @@
     </div>
 
     <div
-        class="text-gray-400 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded"
+        class="text-gray-400 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded hover:border-purple-500"
     >
         <a
             href="https://github.com/mark1yan0"
             target="_blank"
-            class="group flex gap-2 items-center text-sm hover:text-purple-500"
+            class="group flex gap-2 items-center text-sm hover:text-purple-500 focus-visible:text-purple-500"
         >
             <GitHubIcon />
             GitHub

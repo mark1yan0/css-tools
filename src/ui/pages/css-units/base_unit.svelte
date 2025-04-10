@@ -13,6 +13,7 @@
         bind:value={converter.base}
         type="number"
         after="px"
+        fieldClass="hover:text-purple-500"
         afterClass="text-xs"
     />
 </div>
