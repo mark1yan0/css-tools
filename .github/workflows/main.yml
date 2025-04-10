@@ -1,32 +1,36 @@
 name: Build
 
 on:
-  push:
-    tags:
-      - '*'  # Triggers on any tag
+    push:
+        tags:
+            - "*" # Triggers on any tag
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.10.0'  # or whatever version your Svelte app uses
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.10.0" # or whatever version your Svelte app uses
+                  cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm i
+            - name: Install pnpm
+              run: npm install -g pnpm
 
-      - name: Build the Svelte app
-        run: pnpm build
+            - name: Install dependencies
+              run: pnpm i
 
-      # Optional: upload build artifacts
-      - name: Upload build
-        uses: actions/upload-artifact@v4
-        with:
-          name: svelte-build
-          path: dist/  # Adjust if your output dir is different (e.g., `dist/`)
+            - name: Build the Svelte app
+              run: pnpm build
+
+            # Optional: upload build artifacts
+            - name: Upload build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: svelte-build
+                  path: dist/ # Adjust if your output dir is different (e.g., `dist/`)
