@@ -79,7 +79,7 @@
     onmouseover={mouseOverHandler}
     onmouseout={mouseOutHandler}
     ondblclick={copyHandler}
-    fieldClass="text-9xl text-purple-600"
-    afterClass="text-6xl mb-8"
+    fieldClass="text-7xl text-purple-600"
+    afterClass="text-5xl mb-4"
     step=".01"
 />

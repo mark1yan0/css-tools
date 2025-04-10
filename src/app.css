@@ -7,12 +7,19 @@ body {
     font-style: normal;
     overflow: hidden;
 
-    --theme-main: var(--color-purple-600);
+    .k-title {
+        font-family: "Doto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+    }
 
     /*
         Prefers color scheme implemented on the theme switcher manager
         The theme is directed by the `data-theme` attribute on the body
     */
+
+    --theme-main: var(--color-purple-600);
 
     /* dark mode */
     &[data-theme="dark"] {
@@ -50,7 +57,10 @@ body {
     background-repeat: no-repeat;
 
     #app {
-        @apply min-w-xl max-w-xl mx-auto p-4;
+        @apply min-w-md max-w-md mx-auto;
+
+        /* display: grid;
+        grid-template-rows: fit-content fit-content fit-content; */
 
         button {
             @apply cursor-pointer;

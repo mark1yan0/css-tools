@@ -12,6 +12,6 @@
         bind:value={converter.base}
         type="number"
         after="px"
-        afterClass="text-sm"
+        afterClass="text-xs"
     />
 </div>

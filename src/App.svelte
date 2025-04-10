@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Header from "@/ui/layouts/Header/index.svelte";
     import Footer from "@/ui/layouts/Footer/index.svelte";
     import CssUnits from "./ui/pages/css-units/index.svelte";
     import CursorNotice from "@/ui/components/Cursor/Notice/index.svelte";
@@ -11,9 +12,11 @@
     });
 </script>
 
-<main>
+<Header />
+
+<main class="h-[18rem] m-4">
     <CssUnits />
     <CursorNotice />
-
-    <Footer />
 </main>
+
+<Footer />

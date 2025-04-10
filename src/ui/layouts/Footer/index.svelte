@@ -1,10 +1,14 @@
 <script lang="ts">
+    import ThemeSwitcher from "@/ui/components/ThemeSwitcher/index.svelte";
     import GitHubIcon from "@/assets/icons/github.svelte";
     import BaseUnit from "@/ui/pages/css-units/base_unit.svelte";
 </script>
 
-<footer class="mt-10 flex items-center justify-between">
-    <BaseUnit />
+<footer id="footer" class="flex items-center justify-between p-4">
+    <div class="flex gap-4">
+        <ThemeSwitcher />
+        <BaseUnit />
+    </div>
 
     <div
         class="text-gray-400 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded"
