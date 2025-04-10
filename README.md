@@ -35,3 +35,9 @@ Then go to browser extentions, click on `upload unpackaged extention` and upload
 - [ ] add contributing guidelines
 - [ ] add merging rules. Only i can merge a PR which i must review and approve
 - [ ] fix workflow
+
+
+## 🔽 Download
+
+Get the latest build:
+[Download svelte-build.zip](https://github.com/your-username/your-repo/releases/latest/download/remtopx.zip)

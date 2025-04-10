@@ -37,3 +37,15 @@ jobs:
               with:
                   name: svelte-build
                   path: dist/ # Adjust if your output dir is different (e.g., `dist/`)
+
+            - name: Zip the build
+              run: |
+                  mkdir -p release
+                  zip -r release/remtopx.zip dist/
+
+            - name: Upload zip to release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: release/remtopx.zip
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
