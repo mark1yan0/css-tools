@@ -6,6 +6,7 @@
     };
 
     interface IProps {
+        title?: string;
         id: string;
         type: string;
         value: number;
@@ -24,6 +25,7 @@
     }
 
     let {
+        title,
         id,
         type,
         fieldClass,
@@ -49,6 +51,7 @@
 
 <span class="relative">
     <input
+        {title}
         {type}
         name={id}
         {id}

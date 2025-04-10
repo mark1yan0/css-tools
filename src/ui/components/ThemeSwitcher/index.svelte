@@ -1,40 +1,15 @@
 <script lang="ts">
     import themeManager from "@/state/theme/index.svelte";
-    import cursorNotice from "@/state/cursor/index.svelte";
 
     function clickHandler() {
         themeManager.switch();
-        cursorNotice.hide();
-    }
-
-    // TODO: refactor (see Field)
-    let timeout = $state<NodeJS.Timeout | null>(null);
-    function mouseOverHandler() {
-        timeout = setTimeout(() => {
-            cursorNotice.info(
-                `Switch to ${themeManager.isDark() ? "light" : "dark"} theme`,
-            );
-        }, 1500);
-    }
-
-    function mouseOutHandler() {
-        cursorNotice.hide();
-        if (!timeout) {
-            return;
-        }
-
-        clearTimeout(timeout);
-        timeout = null;
     }
 </script>
 
 <button
     onclick={clickHandler}
-    onfocus={mouseOverHandler}
-    onblur={mouseOutHandler}
-    onmouseover={mouseOverHandler}
-    onmouseout={mouseOutHandler}
     class="hover:scale-110 transition-all"
+    title="switch theme"
 >
     {#if themeManager.isDark()}
         <svg

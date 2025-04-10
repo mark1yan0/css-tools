@@ -8,6 +8,7 @@
 >
     <p class="inline">Base size:</p>
     <Field
+        title="Change base size"
         id="base-size"
         bind:value={converter.base}
         type="number"
