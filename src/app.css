@@ -59,9 +59,6 @@ body {
     #app {
         @apply min-w-md max-w-md mx-auto;
 
-        /* display: grid;
-        grid-template-rows: fit-content fit-content fit-content; */
-
         button {
             @apply cursor-pointer;
         }

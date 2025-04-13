@@ -34,6 +34,8 @@ jobs:
             # Optional: upload build artifacts
             - name: Upload build
               uses: actions/upload-artifact@v4
+              # Unexpected error fetching GitHub release for tag refs/tags/v1.0.0: HttpError: Resource not accessible by integration
+              # Error: Resource not accessible by integration. Maybe i need to create the secret?
               with:
                   name: svelte-build
                   path: dist/ # Adjust if your output dir is different (e.g., `dist/`)
@@ -41,11 +43,11 @@ jobs:
             - name: Zip the build
               run: |
                   mkdir -p release
-                  zip -r release/remtopx.zip dist/
+                  zip -r release/rem-to-px.zip dist/
 
             - name: Upload zip to release
               uses: softprops/action-gh-release@v1
               with:
-                  files: release/remtopx.zip
+                  files: release/rem-to-px.zip
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

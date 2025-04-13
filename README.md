@@ -1,6 +1,6 @@
-# CSS Units converter
+# CSS Tools
 
-Small Browser extention to quickly have an overview on the conversion of css value
+Small Browser extention for CSS Tools
 
 **For now only supports px to rem and vice versa**
 
@@ -22,7 +22,7 @@ To use the extention run
 
 `pnpm build` to build the bundle
 
-Then go to browser extentions, click on `upload unpackaged extention` and upload the built `dist` folder
+Then go to browser extentions, click on `upload unpackaged extention` and upload the built `build` folder
 
 # TODO
 
@@ -30,14 +30,17 @@ Then go to browser extentions, click on `upload unpackaged extention` and upload
 - [ ] make tags to be able to download the extention without building install
 - [ ] add changelog on new releases
 - [ ] setup repo to be opensource and collaborative
-- [ ] rename repo
+- [ ] rename repo to css tools
 - [ ] add lincense
 - [ ] add contributing guidelines
 - [ ] add merging rules. Only i can merge a PR which i must review and approve
 - [ ] fix workflow
+- [x] make logo
+- [x] favicon
+- [x] from dist to build
 
 
 ## 🔽 Download
 
 Get the latest build:
-[Download svelte-build.zip](https://github.com/your-username/your-repo/releases/latest/download/remtopx.zip)
+[Download css-tools.zip](https://github.com/your-username/your-repo/releases/latest/download/css-tools.zip)
