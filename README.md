@@ -43,4 +43,4 @@ Then go to browser extentions, click on `upload unpackaged extention` and upload
 ## 🔽 Download
 
 Get the latest build:
-[Download css-tools.zip](https://github.com/your-username/your-repo/releases/latest/download/css-tools.zip)
+[Download css-tools.zip](https://github.com/mark1yan0/css-tools/releases/latest/download/css-tools.zip)
