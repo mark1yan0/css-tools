@@ -3,10 +3,11 @@ type TSeverity = "success" | "info" | "warning" | "error";
 interface IOptions {
     icon?: TSeverity;
     duration?: number;
+    autoHide?: boolean;
 }
 
-class CursorNotice {
-    private static instance: CursorNotice;
+class TooltipManager {
+    private static instance: TooltipManager;
     shown: boolean = $state(false);
     message: string = $state("");
     icon: TSeverity = $state("info");
@@ -18,11 +19,11 @@ class CursorNotice {
 
     private constructor() {}
 
-    public static getInstance(): CursorNotice {
-        if (!CursorNotice.instance) {
-            CursorNotice.instance = new CursorNotice();
+    public static getInstance(): TooltipManager {
+        if (!TooltipManager.instance) {
+            TooltipManager.instance = new TooltipManager();
         }
-        return CursorNotice.instance;
+        return TooltipManager.instance;
     }
 
     /**
@@ -39,8 +40,13 @@ class CursorNotice {
             clearTimeout(this.hideTimeout);
         }
 
-        const duration = options?.duration ?? this.defaultDuration;
+        const autoHide = options?.autoHide ?? true;
 
+        if (!autoHide) {
+            return;
+        }
+
+        const duration = options?.duration ?? this.defaultDuration;
         // Automatically hide after the specified duration
         this.hideTimeout = window.setTimeout(() => {
             this.hide();
@@ -77,4 +83,4 @@ class CursorNotice {
     }
 }
 
-export default CursorNotice.getInstance();
+export default TooltipManager.getInstance();

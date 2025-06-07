@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cursorNotice from "@/state/cursor/index.svelte";
+    import tooltip from "@/state/tooltip/index.svelte";
     import Field from "@/ui/components/Field/index.svelte";
 
     interface IProps {
@@ -26,7 +26,7 @@
 
         if (navigator.clipboard) {
             navigator.clipboard.writeText(`${value}${id}`);
-            cursorNotice.info(`Copied ${value}${id}`);
+            tooltip.info(`Copied ${value}${id}`);
         }
     }
 
@@ -54,12 +54,12 @@
     let timeout = $state<NodeJS.Timeout | null>(null);
     function mouseOverHandler() {
         timeout = setTimeout(() => {
-            cursorNotice.info("Double click to copy");
+            tooltip.info("Double click to copy");
         }, 3000); // TODO: add to settings and make possibility to disable
     }
 
     function mouseOutHandler() {
-        cursorNotice.hide();
+        tooltip.hide();
         if (!timeout) {
             return;
         }
