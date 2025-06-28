@@ -1,9 +1,15 @@
 <script lang="ts">
     import Field from "@/ui/components/Field/index.svelte";
     import Chip from "@/ui/components/Chip/index.svelte";
+
+    // fields
     let text = $state("#FFFFFF"); // white
     let bg = $state("#000000"); // black
     let score = $state(1);
+
+    // compliance ui
+    let sm = $state(getScoreUi(21, "sm"));
+    let lg = $state(getScoreUi(21, "lg"));
 
     // Convert hex color to RGB array
     function hexToRgb(hex: string) {
@@ -40,33 +46,27 @@
         return ((lighter + 0.05) / (darker + 0.05)).toFixed(2);
     }
 
-    // let score = $state(getContrastRatio(text, bg))
-    let sm = $state(getScoreUi(21, "small"));
-    let lg = $state(getScoreUi(21, "large"));
-    function getScoreUi(score: number, type: "small" | "large") {
-        const threshold = type === "small" ? 4.5 : 3;
-        // const fails = type === 'small' ? 4.5 : 3
-        // const ok = type === 'small' ? 3 : 5 // TODO: handle
-        // const pass = type === 'small' ? 3 : 5 // TODO: handle
+    function getScoreUi(score: number, type: "sm" | "lg") {
+        const threshold = type === "sm" ? 4.5 : 3;
+        const midThreshold = type === "sm" ? 7 : 4.5;
 
         if (score < threshold) {
-            // TODO: udjast
             return {
-                type: "fails",
+                type: "fails" as const,
                 label: "Fails",
             };
         }
 
-        if (score < 15) {
+        if (score >= threshold && score <= midThreshold) {
             return {
-                type: "ok",
+                type: "ok" as const,
                 label: "Ok",
             };
         }
 
         // pass
         return {
-            type: "pass",
+            type: "pass" as const,
             label: "Pass",
         };
     }
@@ -74,8 +74,8 @@
     $effect(() => {
         let contrast = getContrastRatio(text, bg);
         score = parseFloat(contrast);
-        sm = getScoreUi(score, "small");
-        lg = getScoreUi(score, "large");
+        sm = getScoreUi(score, "sm");
+        lg = getScoreUi(score, "lg");
     });
 </script>
 
@@ -108,12 +108,12 @@
             <h2>WCAG AA</h2>
 
             <p>
-                Large text: <strong>4.5:1</strong>
+                Large text: <strong>3:1</strong>
                 <Chip type={lg.type} label={lg.label} />
             </p>
             <p>
-                Small text <strong>3:1</strong>
-                <Chip type={lg.type} label={lg.label} />
+                Small text <strong>4.5:1</strong>
+                <Chip type={sm.type} label={sm.label} />
             </p>
         </div>
     </div>
