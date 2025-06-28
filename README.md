@@ -38,6 +38,9 @@ Then go to browser extentions, click on `upload unpackaged extention` and upload
 - [x] make logo
 - [x] favicon
 - [x] from dist to build
+- [ ] contrast ratio
+- [x] sipmle router
+- [x] navigation
 
 
 ## 🔽 Download

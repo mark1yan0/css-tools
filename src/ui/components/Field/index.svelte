@@ -9,7 +9,7 @@
         title?: string;
         id: string;
         type: string;
-        value: number;
+        value: number | string;
         fieldClass?: string;
         label?: string;
         labelClass?: string;
