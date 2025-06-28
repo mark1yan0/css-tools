@@ -1,8 +1,9 @@
 <script lang="ts">
     import Logo from "@/ui/components/Logo/index.svelte";
+    import Nav from "./Nav.svelte";
 </script>
 
-<header id="header" class="p-4">
+<header id="header" class="p-4 flex items-center justify-between">
     <Logo />
-    <!-- <h1 class="k-title animated-text text-4xl text-center">REM {"<->"} PX</h1> -->
+    <Nav />
 </header>
