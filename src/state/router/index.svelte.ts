@@ -4,8 +4,6 @@ class Router {
     private static instance: Router;
     public route: TRoutes = $state("/contrast-ratio");
 
-    constructor() {}
-
     public static getInstance(): Router {
         if (!Router.instance) {
             Router.instance = new Router();

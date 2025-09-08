@@ -1,6 +1,6 @@
 <script lang="ts">
     import tooltip from "@/state/tooltip/index.svelte";
-    import Field from "@/ui/components/Field/index.svelte";
+    import Field from "@/ui/components/Fields/Field/index.svelte";
 
     interface IProps {
         id: string;
