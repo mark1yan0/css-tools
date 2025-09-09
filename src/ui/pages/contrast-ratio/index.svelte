@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Field from "@/ui/components/Field/index.svelte";
+    import ColorField from "@/ui/components/Fields/Color/index.svelte";
     import Chip from "@/ui/components/Chip/index.svelte";
 
     // fields
@@ -8,8 +8,8 @@
     let score = $state(1);
 
     // compliance ui
-    let sm = $state(getScoreUi(21, "sm"));
-    let lg = $state(getScoreUi(21, "lg"));
+    let sm = $derived(getScoreUi(score, "sm"));
+    let lg = $derived(getScoreUi(score, "lg"));
 
     // Convert hex color to RGB array
     function hexToRgb(hex: string) {
@@ -25,7 +25,6 @@
             (c) => c / 255,
         );
     }
-
     // Calculate relative luminance
     function getLuminance([r, g, b]: number[]) {
         const adjust = (c: number) =>
@@ -34,7 +33,6 @@
         const [R, G, B] = [adjust(r), adjust(g), adjust(b)];
         return 0.2126 * R + 0.7152 * G + 0.0722 * B;
     }
-
     // Calculate contrast ratio
     function getContrastRatio(hex1: string, hex2: string) {
         const lum1 = getLuminance(hexToRgb(hex1));
@@ -71,40 +69,22 @@
         };
     }
 
-    $effect(() => {
-        let contrast = getContrastRatio(text, bg);
-        score = parseFloat(contrast);
-        sm = getScoreUi(score, "sm");
-        lg = getScoreUi(score, "lg");
-    });
+    let derivedScore = $derived(parseFloat(getContrastRatio(text, bg)));
 </script>
 
 <section id="contrast" class="flex flex-col justify-between h-full">
-    <Field
-        id="text"
-        type="color"
-        label="Text color"
-        fieldClass="w-full block"
-        bind:value={text}
-    />
-    {text}
-
-    <Field
-        id="bg"
-        type="color"
-        label="Background color"
-        fieldClass="w-full block"
-        bind:value={bg}
-    />
-    {bg}
+    <div class="full flex justify-between gap-2 mt-2 items-center">
+        <ColorField id="text" label="Text color" bind:value={text} />
+        <ColorField id="bg" label="Background color" bind:value={bg} />
+    </div>
 
     <div class="flex gap-2 mt-2 items-center">
         <strong
             class="rounded-full text-4xl mx-auto min-w-20 min-h-20 flex items-center justify-center bg-gray-100 text-gray-700"
         >
-            {score}
+            {derivedScore}
         </strong>
-        <div class="bg-zinc-800 border border-zinc-700 p-2 rounded flex-1">
+        <div class=" bg-gray-100 text-gray-700 p-2 rounded flex-1">
             <h2>WCAG AA</h2>
 
             <p>
