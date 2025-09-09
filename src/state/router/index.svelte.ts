@@ -14,6 +14,10 @@ class Router {
     public navigate(route: TRoutes) {
         this.route = route;
     }
+
+    public match(route: TRoutes): boolean {
+        return this.route === route;
+    }
 }
 
 export default Router.getInstance();

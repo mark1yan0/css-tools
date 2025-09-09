@@ -2,12 +2,16 @@
     import ThemeSwitcher from "@/ui/components/ThemeSwitcher/index.svelte";
     import GitHubIcon from "@/assets/icons/github.svelte";
     import BaseUnit from "@/ui/pages/css-units/base_unit.svelte";
+
+    import router from "@/state/router/index.svelte";
 </script>
 
 <footer id="footer" class="flex items-center justify-between p-4">
     <div class="flex gap-4">
         <ThemeSwitcher />
-        <BaseUnit />
+        {#if router.match("/css-units")}
+            <BaseUnit />
+        {/if}
     </div>
 
     <div
