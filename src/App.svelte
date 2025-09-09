@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Header from "@/ui/layouts/Header/index.svelte";
-    import Footer from "@/ui/layouts/Footer/index.svelte";
-    import Tooltip from "@/ui/components/Tooltip/index.svelte";
+    import Header from "@/ui/layouts/header/index.svelte";
+    import Footer from "@/ui/layouts/footer/index.svelte";
+    import Tooltip from "@/ui/components/tooltip/index.svelte";
     import themeManager from "@/state/theme/index.svelte";
     import { onMount } from "svelte";
     import Routes from "./ui/pages/routes.svelte";
@@ -14,7 +14,7 @@
 
 <Header />
 
-<main class="h-[18rem] m-4">
+<main class="h-[18rem] max-h-[18rem] m-4">
     <Routes />
 
     <Tooltip />

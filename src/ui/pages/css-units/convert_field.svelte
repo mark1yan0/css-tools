@@ -1,6 +1,7 @@
 <script lang="ts">
     import tooltip from "@/state/tooltip/index.svelte";
-    import Field from "@/ui/components/Fields/Field/index.svelte";
+    import Field from "@/ui/components/fields/field/index.svelte";
+    import copy from "@/utils/copy";
 
     interface IProps {
         id: string;
@@ -14,21 +15,6 @@
     };
 
     let { id, value = $bindable() }: IProps = $props();
-
-    function copyHandler() {
-        if (!value && value !== 0) {
-            throw new Error("An error occured when trying to copy");
-        }
-
-        if (!navigator.clipboard) {
-            throw new Error("Copy not available");
-        }
-
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(`${value}${id}`);
-            tooltip.info(`Copied ${value}${id}`);
-        }
-    }
 
     function focusHandler(event: TFocusEvent) {
         if (!event.currentTarget) {
@@ -78,7 +64,7 @@
     onblur={blurHandler}
     onmouseover={mouseOverHandler}
     onmouseout={mouseOutHandler}
-    ondblclick={copyHandler}
+    ondblclick={() => copy(`${value}${id}`, `Copied ${value}${id}`)}
     fieldClass="text-7xl text-[var(--accent)]"
     afterClass="text-5xl mb-4"
     step=".01"

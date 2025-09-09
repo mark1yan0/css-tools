@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ThemeSwitcher from "@/ui/components/ThemeSwitcher/index.svelte";
+    import ThemeSwitcher from "@/ui/components/theme-switcher/index.svelte";
     import GitHubIcon from "@/assets/icons/github.svelte";
     import BaseUnit from "@/ui/pages/css-units/base_unit.svelte";
 

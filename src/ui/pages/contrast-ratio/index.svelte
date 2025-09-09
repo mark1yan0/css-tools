@@ -1,6 +1,6 @@
 <script lang="ts">
-    import ColorField from "@/ui/components/Fields/Color/index.svelte";
-    import Chip from "@/ui/components/Chip/index.svelte";
+    import ColorField from "@/ui/components/fields/color/index.svelte";
+    import Chip from "@/ui/components/chip/index.svelte";
 
     // fields
     let text = $state("#FFFFFF"); // white

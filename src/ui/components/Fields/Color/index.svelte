@@ -1,4 +1,6 @@
 <script lang="ts">
+    import copy from "@/utils/copy";
+
     interface IProps {
         id: string;
         label: string;
@@ -32,6 +34,7 @@
         class="focus:outline-none field-sizing-content text-2xl"
         title={`${id}-input`}
         type="text"
+        ondblclick={() => copy(value)}
         placeholder="HEX"
         name={`${id}-input`}
         id={`${id}-input`}
