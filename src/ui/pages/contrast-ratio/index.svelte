@@ -78,13 +78,13 @@
         <ColorField id="bg" label="Background color" bind:value={bg} />
     </div>
 
-    <div class="flex gap-2 mt-2 items-center">
+    <div class="flex gap-2 mt-2">
         <strong
-            class="rounded-full text-4xl mx-auto min-w-20 min-h-20 flex items-center justify-center bg-gray-100 text-gray-700"
+            class="w-[30%] rounded-full text-4xl grid place-items-center container"
         >
             {derivedScore}
         </strong>
-        <div class=" bg-gray-100 text-gray-700 p-2 rounded flex-1">
+        <div class="container w-[70%] p-2 rounded flex-1">
             <h2>WCAG AA</h2>
 
             <p>

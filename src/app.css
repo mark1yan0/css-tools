@@ -19,23 +19,31 @@ body {
         The theme is directed by the `data-theme` attribute on the body
     */
 
-    --theme-main: var(--color-purple-600);
+    --background: var(--color-purple-600);
+    --foreground: var(--color-zinc-800);
+    --accent: var(--color-purple-600);
 
     /* dark mode */
     &[data-theme="dark"] {
         --theme-background-from: rgb(63, 63, 70);
         --theme-background-to: rgba(24, 24, 27, 1);
-        --theme-text: var(--color-gray-300);
+        --contrast: var(--color-gray-100);
+        & .container {
+            @apply bg-zinc-800 border border-zinc-700;
+        }
     }
 
     /* light mode */
     &[data-theme="light"] {
         --theme-background-from: var(--color-gray-100);
         --theme-background-to: var(--color-gray-400);
-        --theme-text: var(--color-gray-800);
+        --contrast: var(--color-gray-800);
+        & .container {
+            @apply border border-zinc-300 bg-gray-100;
+        }
     }
 
-    @apply text-[var(--theme-text)] animate-gradient;
+    @apply text-[var(--contrast)] animate-gradient;
 
     background: var(--theme-background-from);
     background: -moz-radial-gradient(

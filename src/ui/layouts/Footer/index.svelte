@@ -4,6 +4,7 @@
     import BaseUnit from "@/ui/pages/css-units/base_unit.svelte";
 
     import router from "@/state/router/index.svelte";
+    import { twMerge } from "tailwind-merge";
 </script>
 
 <footer id="footer" class="flex items-center justify-between p-4">
@@ -14,16 +15,12 @@
         {/if}
     </div>
 
-    <div
-        class="text-gray-400 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded hover:border-purple-500"
+    <a
+        href="https://github.com/mark1yan0"
+        target="_blank"
+        class="container group px-2 w-fit rounded hover:!border-[var(--accent)] flex gap-2 items-center text-sm hover:!text-[var(--accent)] focus-visible:text-[var(--accent)]"
     >
-        <a
-            href="https://github.com/mark1yan0"
-            target="_blank"
-            class="group flex gap-2 items-center text-sm hover:text-purple-500 focus-visible:text-purple-500"
-        >
-            <GitHubIcon />
-            GitHub
-        </a>
-    </div>
+        <GitHubIcon />
+        GitHub
+    </a>
 </footer>

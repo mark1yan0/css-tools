@@ -21,7 +21,7 @@
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            class="fill-[var(--theme-text)] hover:fill-purple-500"
+            class="fill-[var(--contrast)] hover:fill-[var(--accent)]"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -35,7 +35,7 @@
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            class="fill-[var(--theme-text)] hover:fill-purple-500"
+            class="fill-[var(--contrast)] hover:fill-[var(--accent)]"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path

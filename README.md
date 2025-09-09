@@ -39,7 +39,8 @@ Then go to browser extentions, click on `upload unpackaged extention` and upload
 - [x] favicon
 - [x] from dist to build
 - [x] contrast ratio
-    - [ ] solve light theme
+- [x] solve light theme
+    - [x] navigation buttons
 - [x] simple router
     - [x] transition
 - [x] navigation

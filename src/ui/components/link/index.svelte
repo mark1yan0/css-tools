@@ -8,8 +8,8 @@
 <button
     {...props}
     class={twMerge(
-        "text-gray-400 bg-zinc-800 border border-zinc-700 px-2 w-fit rounded hover:border-purple-500 flex gap-2 items-center text-sm hover:text-purple-500 focus-visible:text-purple-500",
-        'data-[selected="true"]:border-purple-500 data-[selected="true"]:text-purple-500',
+        "container px-2 w-fit rounded hover:!border-[var(--accent)] flex gap-2 items-center text-sm hover:!text-[var(--accent)] focus-visible:text-[var(--accent)]",
+        'data-[selected="true"]:!border-[var(--accent)] data-[selected="true"]:!text-[var(--accent)]',
         props.class?.toString() ?? "",
     )}
 >

@@ -24,7 +24,7 @@
         onclick={() => withElement(input).click()}
         aria-label="Open color picker"
     >
-        <span class="mix-blend-difference">
+        <span class="text-white mix-blend-difference">
             {label}
         </span>
     </button>
