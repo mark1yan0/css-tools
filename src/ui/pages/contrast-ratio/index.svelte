@@ -7,10 +7,6 @@
     let bg = $state("#000000"); // black
     let score = $state(1);
 
-    // compliance ui
-    let sm = $derived(getScoreUi(score, "sm"));
-    let lg = $derived(getScoreUi(score, "lg"));
-
     // Convert hex color to RGB array
     function hexToRgb(hex: string) {
         hex = hex.replace("#", "");
@@ -70,6 +66,9 @@
     }
 
     let derivedScore = $derived(parseFloat(getContrastRatio(text, bg)));
+    // compliance ui
+    let sm = $derived(getScoreUi(derivedScore, "sm"));
+    let lg = $derived(getScoreUi(derivedScore, "lg"));
 </script>
 
 <section id="contrast" class="flex flex-col justify-between h-full">
