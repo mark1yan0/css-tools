@@ -1,3 +1,3 @@
 // router
 
-export type TRoutes = "/" | "/css-units" | "/contrast-ratio";
+export type TRoutes = "/" | "/css-units" | "/contrast-ratio" | "/settings";

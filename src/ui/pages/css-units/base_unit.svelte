@@ -11,7 +11,7 @@
         bind:value={converter.base}
         type="number"
         after="px"
-        fieldClass="hover:text-[var(--accent)]"
+        fieldClass="hover:text-[var(--primary)]"
         afterClass="text-xs"
     />
 </div>

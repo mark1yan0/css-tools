@@ -24,7 +24,7 @@
         const target = event.currentTarget;
         target.select();
 
-        target.style.color = "var(--contrast)";
+        target.style.color = "var(--text)";
     }
 
     function blurHandler(event: TFocusEvent) {
@@ -34,7 +34,7 @@
 
         const target = event.currentTarget;
 
-        target.style.color = "var(--accent)";
+        target.style.color = "var(--primary)";
     }
 
     let timeout = $state<NodeJS.Timeout | null>(null);
@@ -65,7 +65,7 @@
     onmouseover={mouseOverHandler}
     onmouseout={mouseOutHandler}
     ondblclick={() => copy(`${value}${id}`, `Copied ${value}${id}`)}
-    fieldClass="text-7xl text-[var(--accent)]"
+    fieldClass="text-7xl text-[var(--primary)]"
     afterClass="text-5xl mb-4"
     step=".01"
 />

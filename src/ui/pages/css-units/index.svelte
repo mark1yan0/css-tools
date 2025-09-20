@@ -3,6 +3,7 @@
     import converter from "@/state/converter/index.svelte";
 </script>
 
+<h1>Units converter</h1>
 <section
     id="converter"
     class="flex flex-col items-center justify-around h-full pr-14"

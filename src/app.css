@@ -19,53 +19,43 @@ body {
         The theme is directed by the `data-theme` attribute on the body
     */
 
-    --background: var(--color-purple-600);
-    --foreground: var(--color-zinc-800);
-    --accent: var(--color-purple-600);
-
-    /* dark mode */
-    &[data-theme="dark"] {
-        --theme-background-from: rgb(63, 63, 70);
-        --theme-background-to: rgba(24, 24, 27, 1);
-        --contrast: var(--color-gray-100);
-        & .container {
-            @apply bg-zinc-800 border border-zinc-700;
-        }
-    }
+    /* dark by default. Default vars are set in themeManager */
 
     /* light mode */
     &[data-theme="light"] {
-        --theme-background-from: var(--color-gray-100);
-        --theme-background-to: var(--color-gray-400);
-        --contrast: var(--color-gray-800);
-        & .container {
-            @apply border border-zinc-300 bg-gray-100;
-        }
+        --background: #f3f4f6;
+        --foreground: #d4d4d8;
+        --text: #1e2939;
     }
 
-    @apply text-[var(--contrast)] animate-gradient;
-
-    background: var(--theme-background-from);
-    background: -moz-radial-gradient(
-        circle,
-        var(--theme-background-from) 0%,
-        var(--theme-background-to) 90%
-    );
-    background: -webkit-radial-gradient(
-        circle,
-        var(--theme-background-from) 0%,
-        var(--theme-background-to) 90%
-    );
-    background: radial-gradient(
-        circle,
-        var(--theme-background-from) 0%,
-        var(--theme-background-to) 90%
-    );
+    @apply text-[var(--text)] animate-gradient;
 
     background-repeat: no-repeat;
 
+    & .container {
+        background: var(--background);
+        border: 1px solid var(--foreground);
+    }
+
     #app {
         @apply min-w-md max-w-md mx-auto;
+
+        background: var(--background);
+        background: -moz-radial-gradient(
+            circle,
+            var(--foreground) 0%,
+            var(--background) 90%
+        );
+        background: -webkit-radial-gradient(
+            circle,
+            var(--foreground) 0%,
+            var(--background) 90%
+        );
+        background: radial-gradient(
+            circle,
+            var(--foreground) 0%,
+            var(--background) 90%
+        );
 
         button {
             @apply cursor-pointer;

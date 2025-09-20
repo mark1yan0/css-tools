@@ -5,9 +5,7 @@
     // fields
     let text = $state("#FFFFFF"); // white
     let bg = $state("#000000"); // black
-    let score = $state(1);
 
-    // Convert hex color to RGB array
     function hexToRgb(hex: string) {
         hex = hex.replace("#", "");
         if (hex.length === 3) {
@@ -21,6 +19,7 @@
             (c) => c / 255,
         );
     }
+
     // Calculate relative luminance
     function getLuminance([r, g, b]: number[]) {
         const adjust = (c: number) =>
@@ -71,6 +70,7 @@
     let lg = $derived(getScoreUi(derivedScore, "lg"));
 </script>
 
+<h1>Contrast ratio</h1>
 <section id="contrast" class="h-full flex flex-col justify-between pt-12">
     <div class="full flex justify-between gap-2 items-center">
         <ColorField id="text" label="Text color" bind:value={text} />
