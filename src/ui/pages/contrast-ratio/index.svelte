@@ -71,13 +71,13 @@
     let lg = $derived(getScoreUi(derivedScore, "lg"));
 </script>
 
-<section id="contrast" class="flex flex-col justify-between h-full">
-    <div class="full flex justify-between gap-2 mt-2 items-center">
+<section id="contrast" class="h-full flex flex-col justify-between pt-12">
+    <div class="full flex justify-between gap-2 items-center">
         <ColorField id="text" label="Text color" bind:value={text} />
         <ColorField id="bg" label="Background color" bind:value={bg} />
     </div>
 
-    <div class="flex gap-2 mt-2">
+    <div class="flex gap-2">
         <strong
             class="w-[30%] rounded-full text-4xl grid place-items-center container"
         >

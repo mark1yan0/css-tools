@@ -7,7 +7,10 @@
     import { twMerge } from "tailwind-merge";
 </script>
 
-<footer id="footer" class="flex items-center justify-between p-4">
+<footer
+    id="footer"
+    class="flex items-center justify-between p-4 min-h-[3.625rem]"
+>
     <div class="flex gap-4">
         <ThemeSwitcher />
         {#if router.match("/css-units")}

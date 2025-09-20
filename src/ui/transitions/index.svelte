@@ -13,11 +13,6 @@
     let delay = $derived(duration + 50);
 </script>
 
-<div
-    id="transition-container"
-    class="h-full"
-    in:fade={{ delay, duration }}
-    out:fade={{ duration }}
->
+<div id="transition-container" class="h-full" in:fade={{ delay, duration }}>
     {@render props.children?.()}
 </div>

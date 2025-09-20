@@ -14,7 +14,7 @@
 
 <Header />
 
-<main class="h-[18rem] max-h-[18rem] m-4">
+<main class="h-full m-4 flex-1">
     <Routes />
 
     <Tooltip />
