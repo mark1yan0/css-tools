@@ -2,17 +2,13 @@
     import ColorField from "@/ui/components/fields/color/index.svelte";
     import Button from "@/ui/components/button/index.svelte";
     import themeManager from "@/state/theme/index.svelte";
+    import THEME_DEFAULTS from "@/state/theme/default";
 
     let theme = $state(themeManager.getDefaults());
 
-    $effect(() => {
-        themeManager.set("custom", theme);
-    });
-
     function resetClickHandler() {
-        // TODO: modal
-        // cannot update fields as would run effect. This needs to be handled with an on change
         themeManager.set("dark");
+        theme = THEME_DEFAULTS.dark;
     }
 </script>
 
@@ -21,24 +17,28 @@
     <div class="grid grid-cols-2 gap-4 items-center justify-center">
         <ColorField
             id="theme-background"
+            onChange={() => themeManager.set("custom", theme)}
             bind:value={theme.background}
             label="Background"
             variant="compact"
         />
         <ColorField
             id="theme-foreground"
+            onChange={() => themeManager.set("custom", theme)}
             bind:value={theme.foreground}
             label="Foreground"
             variant="compact"
         />
         <ColorField
             id="theme-primary"
+            onChange={() => themeManager.set("custom", theme)}
             bind:value={theme.primary}
             label="Primary"
             variant="compact"
         />
         <ColorField
             id="theme-text"
+            onChange={() => themeManager.set("custom", theme)}
             bind:value={theme.text}
             label="Text"
             variant="compact"

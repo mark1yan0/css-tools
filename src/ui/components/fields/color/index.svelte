@@ -1,11 +1,13 @@
 <script lang="ts">
     import copy from "@/utils/copy";
+    import type { ChangeEventHandler } from "svelte/elements";
 
     interface IProps {
         id: string;
         label: string;
         value: string;
         variant?: "default" | "compact";
+        onChange?: ChangeEventHandler<HTMLInputElement> | undefined | null;
     }
 
     let {
@@ -13,6 +15,7 @@
         id,
         label,
         variant = "default",
+        onChange,
     }: IProps = $props();
     let input: HTMLInputElement | null = null;
 
@@ -40,6 +43,7 @@
         <input
             class="focus:outline-none field-sizing-content text-2xl"
             title={`${id}-input`}
+            oninput={onChange}
             type="text"
             ondblclick={() => copy(value)}
             placeholder="HEX"
@@ -69,6 +73,7 @@
                 type="text"
                 ondblclick={() => copy(value)}
                 placeholder="HEX"
+                oninput={onChange}
                 name={`${id}-input`}
                 id={`${id}-input`}
                 bind:value
@@ -82,6 +87,7 @@
     class="hidden"
     type="color"
     bind:this={input}
+    oninput={onChange}
     name={id}
     {id}
     bind:value
